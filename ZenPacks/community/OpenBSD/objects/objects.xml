@@ -95,7 +95,7 @@ True
 300
 </property>
 <property type="string" id="oid" mode="w" >
-1.3.6.1.2.1.25.3.3.1.2
+1.3.6.1.2.1.25.3.3.1.2.1.0
 </property>
 <property type="boolean" id="usessh" mode="w" >
 False
@@ -160,7 +160,7 @@ True
 500
 </property>
 <property type="string" id="units" mode="w" >
-percentage
+percent +
 </property>
 <property type="boolean" id="log" mode="w" >
 False
@@ -169,10 +169,10 @@ False
 False
 </property>
 <property type="int" id="miny" mode="w" >
-None
+0
 </property>
 <property type="int" id="maxy" mode="w" >
-None
+100
 </property>
 <property type="boolean" id="hasSummary" mode="w" >
 True
@@ -212,7 +212,7 @@ AVERAGE
 </object>
 </tomanycont>
 </object>
-<object id='Memory Used' module='Products.ZenModel.GraphDefinition' class='GraphDefinition'>
+<object id='Memory Utilization' module='Products.ZenModel.GraphDefinition' class='GraphDefinition'>
 <property type="int" id="height" mode="w" >
 100
 </property>
@@ -220,19 +220,19 @@ AVERAGE
 500
 </property>
 <property type="string" id="units" mode="w" >
-bytes
+percent
 </property>
 <property type="boolean" id="log" mode="w" >
 False
 </property>
 <property type="boolean" id="base" mode="w" >
-True
+False
 </property>
 <property type="int" id="miny" mode="w" >
-None
+0
 </property>
 <property type="int" id="maxy" mode="w" >
-None
+100
 </property>
 <property type="boolean" id="hasSummary" mode="w" >
 True
@@ -258,13 +258,13 @@ False
 %5.2lf%s
 </property>
 <property type="string" id="legend" mode="w" >
-Real Memory Used
+Used
 </property>
 <property type="long" id="limit" mode="w" >
 -1
 </property>
 <property type="string" id="rpn" mode="w" >
-4096,*
+4096,*,${here/hw/totalMemory},/,100,*
 </property>
 <property type="string" id="dpName" mode="w" >
 MemoryUsed_MemoryUsed
@@ -290,13 +290,13 @@ False
 %5.2lf%s
 </property>
 <property type="string" id="legend" mode="w" >
-Swap Space Used
+Swap
 </property>
 <property type="long" id="limit" mode="w" >
 -1
 </property>
 <property type="string" id="rpn" mode="w" >
-4096,*
+4096,*,DUP,${here/os/totalSwap},LT,EXC,${here/os/totalSwap},/,100,*,0.0,IF
 </property>
 <property type="string" id="dpName" mode="w" >
 SwapUsed_SwapUsed
