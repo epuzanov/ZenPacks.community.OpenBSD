@@ -51,7 +51,7 @@ class PowerSupplyMap(SnmpPlugin):
         for oid, sensor in tabledata.get("sensorTable",{}).iteritems():
             try:
                 om = self.objectMap(sensor)
-                if int(om._type) != 2: continue
+                if int(om._type) != 21: continue
                 om.snmpindex = oid.strip('.')
                 om.id = self.prepId(om.id)
                 om.state = self.states.get(int(om.state), 'unknown')
